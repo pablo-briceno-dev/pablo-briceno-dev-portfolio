@@ -107,6 +107,7 @@ export const Support: React.FC = () => {
           border: "1px solid",
           borderColor: "divider",
           mb: 3,
+          borderLeft: "3px solid",
         }}
       >
         <Typography

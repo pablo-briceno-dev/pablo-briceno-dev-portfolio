@@ -28,18 +28,6 @@ export const Footer: React.FC = () => {
           <Stack direction="row" spacing={2.25} sx={{ flexWrap: "wrap" }}>
             <Typography
               component={Link}
-              to="/support"
-              sx={{
-                fontSize: ".72rem",
-                color: palette.muted,
-                textDecoration: "none",
-                "&:hover": { color: palette.accent },
-              }}
-            >
-              Soporte
-            </Typography>
-            <Typography
-              component={Link}
               to="/terms"
               sx={{
                 fontSize: ".72rem",

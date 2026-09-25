@@ -17,7 +17,7 @@ import {
 export const PrivacyRutaPlaca: React.FC = () => {
   return (
     <Box>
-      <SectionLabel>Política de Privacidad — RutaPlaca</SectionLabel>
+      <SectionLabel>Política de Privacidad · RutaPlaca</SectionLabel>
 
       <Typography variant="h2" gutterBottom>
         1. Información que recopilamos
@@ -131,6 +131,7 @@ export const PrivacyRutaPlaca: React.FC = () => {
           borderRadius: 1, // 8px con el theme por defecto
           border: "1px solid",
           borderColor: "divider",
+          borderLeft: "3px solid",
         }}
       >
         <Typography sx={{ fontSize: "0.85rem", color: "text.secondary" }}>

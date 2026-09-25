@@ -138,6 +138,7 @@ export const PrivacyKaku: React.FC = () => {
           borderRadius: 1, // 8px con el theme por defecto
           border: "1px solid",
           borderColor: "divider",
+          borderLeft: "3px solid",
         }}
       >
         <Typography sx={{ fontSize: "0.85rem", color: "text.secondary" }}>

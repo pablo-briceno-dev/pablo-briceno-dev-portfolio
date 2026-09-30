@@ -24,6 +24,7 @@ export interface Project {
   description: string;
   /** Ruta a la imagen del ícono dentro de /public, ej: "/assets/apps/kaku-budget.png" */
   icon: string;
+  imageQr?: string;
   status: ProjectStatus;
   /** Botones de acción (Play Store, GitHub, sitio web, etc) */
   links: ProjectLink[];

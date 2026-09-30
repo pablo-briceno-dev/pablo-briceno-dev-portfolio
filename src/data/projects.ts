@@ -24,6 +24,7 @@ export const projects: Project[] = [
     description:
       "Consulta el pico y placa de tu vehículo en las principales ciudades de Colombia. Notificaciones inteligentes, widgets y soporte para múltiples vehículos.",
     icon: "/apps/ruta-placa.png",
+    imageQr: "/apps/ruta-placa-qr.png",
     status: "available",
     tags: ["Flutter", "Android"],
     links: [

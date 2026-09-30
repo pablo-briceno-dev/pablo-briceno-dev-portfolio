@@ -48,105 +48,139 @@ export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
           }}
         />
       </Box>
-
-      <Stack spacing={1}>
-        <Typography
-          variant="h3"
-          sx={{ fontSize: "1.15rem", letterSpacing: "-.01em" }}
-        >
-          {project.name}
-        </Typography>
-
-        <Typography
-          sx={{ fontSize: ".83rem", color: palette.muted, lineHeight: 1.7 }}
-        >
-          {project.description}
-        </Typography>
-
-        <StatusBadge status={project.status} />
-
-        {project.tags && project.tags.length > 0 && (
-          <Stack direction="row" sx={{ pt: 0.5, flexWrap: "wrap", gap: 1 }}>
-            {project.tags.map((tag) => (
-              <Box
-                key={tag}
-                sx={{
-                  fontSize: ".65rem",
-                  letterSpacing: ".08em",
-                  textTransform: "uppercase",
-                  color: palette.muted,
-                }}
-              >
-                #{tag}
-              </Box>
-            ))}
-          </Stack>
-        )}
-
-        {project.links.length > 0 && (
-          <Stack direction="row" sx={{ mt: 1.5, flexWrap: "wrap", gap: 1.25 }}>
-            {project.links.map((link) => (
-              <Button
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener"
-                startIcon={LINK_ICONS[link.kind]}
-                variant={link.kind === "play" ? "contained" : "outlined"}
-                size="small"
-                sx={
-                  link.kind === "play"
-                    ? {
-                        background: `linear-gradient(135deg, ${palette.accent2}, ${palette.accent})`,
-                        color: palette.bg,
-                        "&:hover": { opacity: 0.85 },
-                      }
-                    : {
-                        background: palette.tagBg,
-                        borderColor: palette.border,
-                        color: palette.muted,
-                        "&:hover": {
-                          borderColor: palette.accent,
-                          color: palette.text,
-                        },
-                      }
-                }
-              >
-                {link.label}
-              </Button>
-            ))}
-          </Stack>
-        )}
-
-        {project.legalLinks && project.legalLinks.length > 0 && (
-          <Stack
-            direction="row"
-            sx={{
-              flexWrap: "wrap",
-              gap: 2,
-              mt: 1.5,
-              pt: 1.5,
-              borderTop: `1px solid ${palette.border}`,
-            }}
+      <Stack direction="row">
+        <Stack spacing={1}>
+          <Typography
+            variant="h3"
+            sx={{ fontSize: "1.15rem", letterSpacing: "-.01em" }}
           >
-            {project.legalLinks.map((legal) => (
-              <Link
-                key={legal.href}
-                href={legal.href}
-                underline="none"
+            {project.name}
+          </Typography>
+
+          <Typography
+            sx={{ fontSize: ".83rem", color: palette.muted, lineHeight: 1.7 }}
+          >
+            {project.description}
+          </Typography>
+
+          <StatusBadge status={project.status} />
+
+          {project.tags && project.tags.length > 0 && (
+            <Stack direction="row" sx={{ pt: 0.5, flexWrap: "wrap", gap: 1 }}>
+              {project.tags.map((tag) => (
+                <Box
+                  key={tag}
+                  sx={{
+                    fontSize: ".65rem",
+                    letterSpacing: ".08em",
+                    textTransform: "uppercase",
+                    color: palette.muted,
+                  }}
+                >
+                  #{tag}
+                </Box>
+              ))}
+            </Stack>
+          )}
+
+          {project.links.length > 0 && (
+            <Stack
+              direction="row"
+              sx={{ mt: 1.5, flexWrap: "wrap", gap: 1.25 }}
+            >
+              {project.links.map((link) => (
+                <Button
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener"
+                  startIcon={LINK_ICONS[link.kind]}
+                  variant={link.kind === "play" ? "contained" : "outlined"}
+                  size="small"
+                  sx={
+                    link.kind === "play"
+                      ? {
+                          background: `linear-gradient(135deg, ${palette.accent2}, ${palette.accent})`,
+                          color: palette.bg,
+                          "&:hover": { opacity: 0.85 },
+                        }
+                      : {
+                          background: palette.tagBg,
+                          borderColor: palette.border,
+                          color: palette.muted,
+                          "&:hover": {
+                            borderColor: palette.accent,
+                            color: palette.text,
+                          },
+                        }
+                  }
+                >
+                  {link.label}
+                </Button>
+              ))}
+            </Stack>
+          )}
+
+          {project.legalLinks && project.legalLinks.length > 0 && (
+            <Stack
+              direction="row"
+              sx={{
+                flexWrap: "wrap",
+                gap: 2,
+                mt: 1.5,
+                pt: 1.5,
+                borderTop: `1px solid ${palette.border}`,
+              }}
+            >
+              {project.legalLinks.map((legal) => (
+                <Link
+                  key={legal.href}
+                  href={legal.href}
+                  underline="none"
+                  sx={{
+                    fontSize: ".7rem",
+                    letterSpacing: ".08em",
+                    textTransform: "uppercase",
+                    color: palette.muted,
+                    "&:hover": { color: palette.accent },
+                  }}
+                >
+                  {legal.label}
+                </Link>
+              ))}
+            </Stack>
+          )}
+        </Stack>
+        <Stack
+          spacing={1}
+          style={{ alignItems: "center", justifyContent: "center" }}
+        >
+          {project.imageQr && (
+            <Box
+              sx={{
+                width: 200,
+                height: 200,
+                borderRadius: "14px",
+                border: "2.5px solid",
+                borderColor: "primary.main",
+                overflow: "hidden",
+                flexShrink: 0,
+              }}
+            >
+              <Box
+                component="img"
+                src={project.imageQr}
+                alt={project.name}
                 sx={{
-                  fontSize: ".7rem",
-                  letterSpacing: ".08em",
-                  textTransform: "uppercase",
-                  color: palette.muted,
-                  "&:hover": { color: palette.accent },
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
                 }}
-              >
-                {legal.label}
-              </Link>
-            ))}
-          </Stack>
-        )}
+              />
+            </Box>
+          )}
+        </Stack>
       </Stack>
     </Box>
   );

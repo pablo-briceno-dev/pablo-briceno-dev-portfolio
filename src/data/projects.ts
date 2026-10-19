@@ -54,7 +54,7 @@ export const projects: Project[] = [
     description:
       "Lleva el control de tu presupuesto personal de forma simple: ingresos, gastos y categorías, pensado para el día a día.",
     icon: "/apps/kaku-budget.png",
-    imageQr: "/apss/kaku-budget-qr.png",
+    imageQr: "/apps/kaku-budget-qr.png",
     status: "coming-soon",
     tags: ["Flutter", "Android"],
     links: [
